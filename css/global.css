@@ -1,0 +1,128 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #333;
+}
+#rect1 {
+	position:absolute;
+	top: 50%;
+	width: 25%;
+	height: 50%;
+	background: rgb(0,136,238);
+	z-index: -1;
+	overflow: hidden;
+	
+}
+#rect2{
+	position: absolute;
+	top: 50%;
+	width: 25%;
+	height: 50%;
+	background: rgb(224,0,113);
+	z-index: -2;
+	left: 25%;
+	overflow: hidden;
+}
+#rect3{
+	position: absolute;
+	top: 50%;
+	width: 25%;
+	height: 50%;
+	background: rgb(255,231,0);
+	z-index: -3;
+	left: 50%;
+	overflow: hidden;
+}
+#rect4{
+	position: absolute;
+	top: 50%;
+	width: 25%;
+	height: 50%;
+	background: rgb(31,34,31);
+	z-index: -4;
+	left: 75%;
+	overflow: hidden;
+}
+
+
+img,
+video,
+canvas, {
+  max-width: 100%;
+}
+
+a,
+a:link {} /* default */
+a:visited {} /* seen */
+a:hover,
+a:focus {} /* over and selected */
+a:active {} /* down */
+
+
+/*
+  CSS Clearfix – http://www.webtoolkit.info/css-clearfix.html
+*/
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.clearfix {
+  display: inline-block;
+}
+html[xmlns] .clearfix {
+  display: block;
+}
+* html .clearfix {
+  height: 1%;
+}
+#me{
+	float:left;
+}
+#stuff {
+	position: absolute;
+	left: 4%;
+	top: 10%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+a:link, a:visited {
+    display: block;
+    width: auto;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #CCC;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+a:hover, a:active {
+    background-color: #999;
+}
+
+#nav {
+	position: absolute;
+	top: 44%;
+}
+
+@media only screen 
+and (max-width : 320px) {
+#me{
+	width: 60%;
+}
+}
