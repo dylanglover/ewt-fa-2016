@@ -1,0 +1,95 @@
+#rect1 {
+  width: 25%;
+  position: absolute;
+  top: 50%;
+  height: 50%;
+  background: #0088ee;
+  z-index: -1;
+  overflow: hidden; }
+
+#rect2 {
+  position: absolute;
+  top: 50%;
+  width: 25%;
+  height: 50%;
+  background: #e00071;
+  z-index: -2;
+  left: 25%;
+  overflow: hidden; }
+
+#rect3 {
+  position: absolute;
+  top: 50%;
+  width: 25%;
+  height: 50%;
+  background: #ffe700;
+  z-index: -3;
+  left: 50%;
+  overflow: hidden; }
+
+#rect4 {
+  position: absolute;
+  top: 50%;
+  width: 25%;
+  height: 50%;
+  background: #1f221f;
+  z-index: -4;
+  left: 75%;
+  overflow: hidden; }
+
+.info {
+  position: absolute;
+  left: 4%;
+  top: 10%; }
+
+nav {
+  position: absolute;
+  top: 5em;
+  left: 25vw;
+  background-color: rgba(204, 204, 204, 0.3);
+  width: 50vw; }
+  nav p, nav h1 {
+    text-align: center;
+    color: #346dbb; }
+
+a:link, a:visited {
+  display: block;
+  width: auto;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #ccc;
+  text-align: center;
+  padding: 4px;
+  text-decoration: none;
+  text-transform: lowercase; }
+  a:link:hover, a:link:active, a:visited:hover, a:visited:active {
+    background-color: #999; }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden; }
+
+li {
+  float: left; }
+
+@media (max-width: 768px) {
+  nav {
+    top: 1em; }
+    nav p, nav h1 {
+      color: #c12d78; } }
+@media (max-width: 320px) {
+  nav {
+    top: 0em;
+    margin-bottom: 5em; }
+    nav h1 {
+      float: right; }
+    nav ul li {
+      float: left; }
+    nav p, nav h1 {
+      color: #1f221f; }
+
+  #me {
+    width: 80%; } }
+
+/*# sourceMappingURL=style.css.map */
