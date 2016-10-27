@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>React Classwork</title>
+
+        <link href='https://fonts.googleapis.com/css?family=Lilita+One' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+        <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    </head>
+
+    <body>
+        <main class="wrapper">
+        </main>
+
+        <script type="text/babel">
+            function Card(props){ return (
+              <li>
+                  <div className="card-value card-value-top">
+                    {props.name.charAt(0)}
+                  </div>
+                  <figure className="suit">
+                    <img className="suit-image" src={'images/' + props.name + '.jpg'}/>
+                    <figcaption className="suit-name">
+                      {props.name}
+                    </figcaption>
+                  </figure>
+                  <div className="card-value card-value-bottom">
+                    {props.name.charAt(0)}
+                  </div>
+              </li>
+            ) }
+
+            function App(){ return(
+            <div className="container">
+                <ol className="cards">
+                    <li className="card">
+                        <Card name="Tanooki"/>
+                    </li>
+                    <li className="card">
+                        <Card name="Bee"/>
+                    </li>
+                    <li className="card">
+                        <Card name="Frog"/>
+                    </li>
+                    <li className="card">
+                        <Card name="Penguin"/>
+                    </li>
+                    <li className="card">
+                        <Card name="Squirrel"/>
+                    </li>
+                    <li className="card">
+                        <Card name="Raccoon"/>
+                    </li>
+                </ol>
+            </div>
+            ) }
+            ReactDOM.render(<App/>, document.querySelector('.wrapper'));
+
+        </script>
+    </body>
+
+</html>
