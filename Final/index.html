@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>MIASMA</title>
+        <script src="java.js"></script>
+        <script src="https://threejs.org/build/three.min.js"></script>
+        <meta charset="utf-8" />
+        <meta name="author" content="Dylan Glover" />
+        <link rel="stylesheet" href="style.css" />
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    </head>
+
+    <body class="project">
+        <div id=overlay></div>
+        <div id="specialBox">
+            <p>
+                <img alt="le fonce logo" src="lefonce_white.png" />
+                <h1><a href="https://soundcloud.com/moonman-benjamin">Moon Man &amp; Benjamin</a></h1>
+                <h2>MIASMA</h2>
+                <button type="button" name="button" onclick="toggleMiasma(this)">Pause</button>
+            </p>
+        </div>
+        <script>
+            // three.js documentation for creating a 3D scene
+            // https://threejs.org/docs/index.html#Manual/Introduction/Creating_a_scene
+            var camera;
+            var scene;
+            var renderer;
+            var mesh;
+            var miasma;
+
+            init();
+            animate();
+
+            function toggleMiasma(element) {
+                if (element.innerHTML === 'Pause') {
+                    miasma.pause();
+                    element.innerHTML = 'Play';
+                } else {
+                    element.innerHTML = 'Pause';
+                    miasma.play();
+                }
+            }
+
+            function init() {
+                // create the scene and camera
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 1000);
+
+                // adding the audio from file
+                var audioListener = new THREE.AudioListener();
+                camera.add(audioListener);
+                miasma = new THREE.Audio(audioListener);
+                scene.add(miasma);
+                var loader = new THREE.AudioLoader();
+                loader.load(
+                    // resource URL
+                    'audio/MoonMan-Benjamin-miasma-mstr.mp3',
+                    // Function when resource is loaded
+                    function(audioBuffer) {
+                        // set the audio object buffer to the loaded object
+                        miasma.setBuffer(audioBuffer);
+                        // play the audio
+                        miasma.play();
+                    },
+                    // Function called when download progresses
+                    function(xhr) {
+                        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                    },
+                    // Function called when download errors
+                    function(xhr) {
+                        console.log('An error happened');
+                    }
+                );
+
+                // Adding 3D lighting from
+                // https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL
+                var light = new THREE.DirectionalLight(0xffffff);
+                light.position.set(0, 0, 1).normalize();
+                scene.add(light);
+                // Making the box
+                var geometry = new THREE.BoxGeometry(64, 64, 64);
+                // Adding the image on the side and apply it as texture
+                var texture = new THREE.TextureLoader().load("textures/moonman.jpg");
+                var material = new THREE.MeshBasicMaterial({
+                    map: texture
+                });
+                mesh = new THREE.Mesh(geometry, material);
+                mesh.position.z = -200;
+                scene.add(mesh);
+
+
+                renderer = new THREE.WebGLRenderer();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                document.body.appendChild(renderer.domElement);
+                window.addEventListener('resize', onWindowResize, false);
+
+                render();
+            }
+
+            function animate() {
+                mesh.rotation.x += .008;
+                mesh.rotation.y += .008;
+
+                render();
+                requestAnimationFrame(animate);
+            }
+
+            function render() {
+                renderer.render(scene, camera);
+            }
+
+            function onWindowResize() {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                render();
+            }
+        </script>
+        <canvas></canvas>
+    </body>
+
+</html>
