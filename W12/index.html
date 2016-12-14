@@ -1,18 +1,68 @@
 <!doctype html>
 <html>
+
     <head>
+        <title>WebGL, three.js - Dylan Glover</title>
         <link rel="stylesheet" href="reveal.js/css/reveal.css">
         <link rel="stylesheet" href="reveal.js/css/theme/white.css">
     </head>
-    <body>
+
+    <body onload="start()">
         <div class="reveal">
             <div class="slides">
-              <section><p>Final Presentation</p><p> WebGL, a JavaScript API for creating interactive 3D and 2D graphics</p></section>
-              <section>Slide 2</section>
-              <section>
-                <section>Vertical Slide 1</section>
-                <section>Vertical Slide 2</section>
-              </section>
+                <section>
+                    <p>Final Presentation</p>
+                    <p> WebGL, a JavaScript API for creating interactive 3D and 2D graphics</p>
+                </section>
+                <section>
+                    <p>using three.js</p>
+                    <p>A JavaScript 3D Library which makes WebGL simpler. </p>
+                </section>
+                <section>
+                    <section>
+                        <img src="imgs/setup.png" alt="setup" width="50%">
+                        <p>Add your three.js libary</p>
+                    </section>
+                    <section>
+                        <img src="imgs/creatingscene.png" alt="setup" width="70%">
+                        <p>Create your scene. We need three things: A scene, a camera, and a renderer so we can render the scene with the camera.</p>
+                    </section>
+                    <section>
+                        <img src="imgs/addingcube.png" alt="setup" width="70%">
+                        <p>To create a cube, we need a BoxGeometry. This is an object that contains all the points (vertices) and fill (faces) of the cube.</p>
+                    </section>
+                    <section>
+                        <img src="imgs/render.png" alt="setup" width="70%">
+                        <p>This will create a loop that causes the renderer to draw the scene 60 times per second</p>
+                    </section>
+                    <section>
+                        <p>Add the following right above the renderer.render call in your render function:</p>
+                        <img src="imgs/cuberotation.png" alt="setup" width="50%">
+                        <p>This will be run every frame (60 times per second), and give the cube a nice rotation animation</p>
+                    </section>
+                    <section>
+                        <p>You must be on a local host for this to work</p>
+                        <img src="imgs/localhost.png" alt="setup" width="50%">
+                        <p>I have already creating my python server on port 8000</p>
+                    </section>
+                </section>
+                <section>
+                    <p>
+                        <h1>Sources</h1>
+                        <p style="font-size:18px;">https://threejs.org/docs/index.html#Manual/Introduction/Creating_a_scene</p>
+                        <p style="font-size:18px;">https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL</p>
+                        <p style="font-size:18px;">https://threejs.org/docs/index.html?q=audio#Reference/Loaders/AudioLoader</p>
+                        <p style="font-size:18px;">https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API</p>
+
+                    </p>
+                </section>
+                <section>
+                    <canvas id="glcanvas" width="640" height="480">
+                Your browser doesn't appear to support the
+                <code>&lt;canvas&gt;</code> element.
+                </canvas>
+                </section>
+
             </div>
         </div>
         <script src="reveal.js/js/reveal.js"></script>
@@ -20,4 +70,5 @@
             Reveal.initialize();
         </script>
     </body>
+
 </html>
